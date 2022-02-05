@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { HashRouter as Router } from 'react-router-dom';
+import AppWithRouterAccess from './AppWithRouterAccess';
+import useWindowDimensions from './hooks/window.js'
+import DotRing from './components/DotRing/DotRing';
+import { motion } from 'framer-motion';
 
 function App() {
+
+const { height, width } = useWindowDimensions();
+
+  const [mouseOut, setMouseOut] = React.useState(false)
+
+  const handleMouseOut = (e) => {
+    setMouseOut(true)
+  }
+
+  const handleMouseOver = (e) => {
+    setMouseOut(false)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <motion.div
+    onMouseOut={(e) => handleMouseOut(e)} 
+    onMouseOver={(e) => handleMouseOver(e)} 
+    data-theme="dark"
+    className="App"
+    >
+      <DotRing mouseOut={mouseOut} />
+      <Router>
+          <AppWithRouterAccess />
+      </Router>
+    </motion.div>
   );
 }
 
