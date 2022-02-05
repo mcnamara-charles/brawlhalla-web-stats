@@ -13,6 +13,7 @@ function App() {
   const [mouseOut, setMouseOut] = React.useState(false)
 
   const handleMouseOut = (e) => {
+    console.log("Mouse Out")
     setMouseOut(true)
   }
 
@@ -21,9 +22,9 @@ function App() {
   }
 
   return (
-    <motion.div
-    onMouseOut={(e) => handleMouseOut(e)} 
-    onMouseOver={(e) => handleMouseOver(e)} 
+    <div
+    onMouseLeave={(e) => handleMouseOut(e)} 
+    onMouseEnter={(e) => handleMouseOver(e)} 
     data-theme="dark"
     className="App"
     >
@@ -31,7 +32,7 @@ function App() {
       <Router>
           <AppWithRouterAccess />
       </Router>
-    </motion.div>
+    </div>
   );
 }
 
