@@ -1,13 +1,13 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import AppWithRouterAccess from './AppWithRouterAccess';
-import useWindowDimensions from './hooks/window.js'
+//import useWindowDimensions from './hooks/window.js'
 import DotRing from './components/DotRing/DotRing';
 import { motion } from 'framer-motion';
 
 function App() {
 
-const { height, width } = useWindowDimensions();
+//const { height, width } = useWindowDimensions();
 
   const [mouseOut, setMouseOut] = React.useState(false)
 
