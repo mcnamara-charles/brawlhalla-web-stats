@@ -2,6 +2,7 @@ import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import AppWithRouterAccess from './AppWithRouterAccess';
 //import useWindowDimensions from './hooks/window.js'
+// I love gemma
 import DotRing from './components/DotRing/DotRing';
 import { motion } from 'framer-motion';
 
