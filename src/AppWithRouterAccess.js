@@ -7,9 +7,9 @@ import { motion } from 'framer-motion';
 const AppWithRouterAccess = () => {
   return (
   <>
-    <motion.main>
+    <main>
       
-    </motion.main>
+    </main>
   </>
   )
 }
