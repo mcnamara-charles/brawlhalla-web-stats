@@ -1,13 +1,22 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 //import { HashLink } from 'react-router-hash-link';
-//import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { Route, Routes, Link} from 'react-router-dom';
+import LandingPage from './components/LandingPage.js';
+import RankingsPage from './components/RankingsPage.js';
 
 const AppWithRouterAccess = () => {
   return (
   <>
-    <main>
+    <div className='sidebar'>
       
+    </div>
+    <main>
+      <Routes>
+        <Route path="/" exact element={<LandingPage />}/>
+        <Route path="/rankings" element={<RankingsPage />}/>
+        {/*<Route path="/about" component={About} />*/}
+      </Routes>
     </main>
   </>
   )

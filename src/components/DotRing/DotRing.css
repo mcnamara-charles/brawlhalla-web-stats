@@ -12,6 +12,10 @@
   transition-duration: 0ms;
 }
 
+.dot.clicked {
+  background-color: #abababde;
+}
+
 .dot.hidden {
   display: none;
 }

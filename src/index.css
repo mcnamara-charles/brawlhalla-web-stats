@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body {
   margin: 0;
@@ -7,18 +8,154 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1d1d1f;
+  background-color: #1c1c1e;
+  color: white
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-  display: "none"
 }
 
 * {
 	transition-duration: 500ms;
 	-webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    cursor: none;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+}
+
+
+.sidebar {
+  background-color: #151516;
+  min-width: 260px;
+  width: 25%;
+  max-width: 310px;
+  height: 100vh;
+  position: sticky;
+  top: 0
+}
+
+.options__wrapper-row {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+.options__wrapper {
+  padding: 35px
+}
+
+.option {
+  width: 250px;
+  height: 250px;
+  background-color: #151516;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+
+.option:hover {
+  transform: scale(1.1);
+  background-color: #ababab9c;
+}
+
+.leaderboard-player {
+  width: 100%;
+  color: white;
+  padding: 0 15px;
+  border-bottom: 1px solid #3d3d3d;
+  font-size: 14px;
+}
+
+.leaderboard-player-name {
+  color: white;
+  font-family: 'Open Sans';
+}
+
+.ranks {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.display {
+  font-size: 55px;
+  font-family: 'Open Sans';
+  color: white
+}
+
+table {
+  font-family: 'Open Sans';
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, tr {
+  width: 100%
+}
+
+table th {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+tbody {
+  background-color: #222224;
+}
+
+thead {
+  background-color: #2c2c2c;;
+}
+
+tr td, tr th {
+  padding: 8px 10px
+}
+
+tr th {
+  text-align: left;
+}
+
+thead tr {
+  color: white
+}
+
+thead tr th {
+  padding-top: 13px;
+  padding-bottom: 13px
+}
+
+.winrate-td {
+  display: flex;
+  align-items: center;
+}
+
+.percent-bar {
+  width: 75px;
+  height: 5px;
+  background-color: #600101;
+  margin-left: 10px
+}
+
+.percent-fill {
+  height: 5px;
+  background-color: #00c400;
+}
+
+.leaderboard-table tbody tr {
+  height: 36px
+}
+
+.leaderboard-table tbody tr:hover {
+  height: 250px
+}
+
+tbody tr td {
+  vertical-align: top;
 }
