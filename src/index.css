@@ -21,7 +21,6 @@ code {
 	transition-duration: 500ms;
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
   box-sizing: border-box;
 }
 
@@ -153,9 +152,161 @@ thead tr th {
 }
 
 .leaderboard-table tbody tr:hover {
-  height: 250px
+  transition-duration: 1s;
+  height: 350px;
 }
 
 tbody tr td {
   vertical-align: top;
+}
+
+.leaderboard-table tbody tr .expanded-content {
+  height: 0;
+  overflow: hidden;
+}
+
+.leaderboard-table tbody tr:hover .collapsed-content {
+  height: 0;
+  overflow: hidden;
+  transition-property: height, width;
+  width: 0
+}
+
+.leaderboard-table tbody tr:hover .expanded-content {
+  height: 350px;
+}
+
+.leaderboard-table .expanded-content > .rank {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.collapsed-content {
+  display: flex;
+  align-items: center;
+}
+
+.leaderboard-table .expanded-content .player-details img {
+  margin-right: 15px;
+  /*max-width: 285px;*/
+  max-height: 200px
+}
+
+.leaderboard-table .expanded-content .player-details {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 350px;
+}
+
+.leaderboard-table .expanded-content .player-details .vertical-data {
+  display: flex;
+  flex-flow: column-reverse;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 350px
+}
+
+.leaderboard-table .expanded-content .player-details .horizontal-data {
+  display: flex;
+  justify-content: center;
+}
+
+
+.leaderboard-table .expanded-content .player-details .name {
+  padding: 3px 20px;
+  background-color: #58acf5;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: max-content;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.player-legend-chart__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+
+.win-percent-with-best_character {
+  margin: 0 auto;
+  margin-top: 25px;
+  width: fit-content;
+  font-size: 12px;
+}
+
+.player-details__content-wrapper {
+  padding: 15px 25px;
+  border-radius: 10px;
+  background-color: #202022;
+  width: 100%
+}
+
+
+.winrate-td .expanded-content {
+  width: 100%
+}
+
+
+.personal-winrate-chart__wrapper {
+  height: 100%;
+  padding: 15px 25px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  background-color: #202022;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+
+.leaderboard-table .winrate-td .expanded-content  {
+  padding: 11px 0;
+}
+
+.expanded-player-rating {
+  font-size: 30px;
+}
+
+table tr:hover .rating-col .expanded-content {
+  display: flex;
+}
+
+.rating-col .expanded-content {
+  flex-flow: column;
+  justify-content: center;
+}
+
+.tier-banner__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.tier-banner__wrapper img {
+  width: 100px;
+  height: fit-content;
+}
+
+.expanded-content .region__wrapper .region-icon {
+  width: 50px
+}
+
+table tr:hover .personal-winrate-chart__context {
+  opacity: 1
+}
+
+.personal-winrate-chart__context {
+  position: absolute;
+  bottom: 15px;
+  font-size: 12px;
+  width: 88%;
+  text-align: center;
+  opacity: 0
 }
