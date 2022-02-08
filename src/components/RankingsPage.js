@@ -49,10 +49,32 @@ function RankingsPage () {
                 leaderboardData = (await fetch(`https://api.brawlhalla.com/rankings/${bracket}/${region}/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
                 // Store and set results
                 setLeaderboard(leaderboardData)
-                storeData("leaderboard", JSON.stringify(leaderboardData))
+                const slbd = {
+                    "time": new Date().toLocaleString(),
+                    "data": leaderboardData
+                }
+                storeData("leaderboard", JSON.stringify(slbd))
             } else {
                 // Store and set results
-                setLeaderboard(JSON.parse(leaderboardData))
+                const lbfd = JSON.parse(leaderboardData)
+                console.log(lbfd.data)
+                const innerData = lbfd.data;
+                const timeDataStored = lbfd.time;
+                const nmp = ((new Date().getTime() - new Date(timeDataStored).getTime())/1000/60)
+
+                if(nmp < 30) {
+                    setLeaderboard(innerData)
+                } else {
+                    console.log("reretrieving data")
+                    leaderboardData = (await fetch(`https://api.brawlhalla.com/rankings/${bracket}/${region}/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
+                    // Store and set results
+                    setLeaderboard(leaderboardData)
+                    const slbd = {
+                        "time": new Date().toLocaleString(),
+                        "data": leaderboardData
+                    }
+                    storeData("leaderboard", JSON.stringify(slbd))
+                }
             }
 
             // Get Stored Legends
