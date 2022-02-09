@@ -203,12 +203,12 @@ function RankingsPage () {
                                             <div className="player-details">
                                                 <div className='player-details__content-wrapper bracket2v2'>
                                                     <div className="names2v2">
-                                                        <Link to={`/players?id=${team.brawlhalla_id_one}`}>
-                                                            <div className="name2">{team.teamname.split('+')[0]}</div>
+                                                        <Link to={`/players?id=${team.brawlhalla_id_one}`} className="name2">
+                                                            {team.teamname.split('+')[0]}
                                                         </Link>
                                                         <div className="concatenator">+</div>
-                                                        <Link to={`/players?id=${team.brawlhalla_id_two}`}>
-                                                            <div className="name2 secondary">{team.teamname.split('+')[1]}</div>
+                                                        <Link to={`/players?id=${team.brawlhalla_id_two}`} className="name2 secondary">
+                                                            {team.teamname.split('+')[1]}
                                                         </Link>
                                                     </div>
                                                     <div className="horizontal-data bracket2v2">
@@ -381,8 +381,8 @@ function RankingsPage () {
                                             <div className="expanded-content">
                                                 <div className="player-details">
                                                     <div className='player-details__content-wrapper'>
-                                                        <Link to={`/players?id=${player.brawlhalla_id}`}>
-                                                            <div className="name">{player.name}</div>
+                                                        <Link to={`/players?id=${player.brawlhalla_id}`} className="name">
+                                                            {player.name}
                                                         </Link>
                                                         <div className="horizontal-data">
                                                             <img src={`img/legends/${getLegendName(player.best_legend)}.png`} alt={getLegendName(player.best_legend)}/>
@@ -586,8 +586,8 @@ function RankingsPage () {
                                         <div className="expanded-content">
                                             <div className="player-details">
                                                 <div className='player-details__content-wrapper'>
-                                                    <Link to={`/players?id=${player.brawlhalla_id}`}>
-                                                        <div className="name">{player.name}</div>
+                                                    <Link to={`/players?id=${player.brawlhalla_id}`} className="name">
+                                                        {player.name}
                                                     </Link>
                                                     <div className="horizontal-data">
                                                         <img src={`img/legends/${getLegendName(player.best_legend)}.png`} alt={getLegendName(player.best_legend)}/>

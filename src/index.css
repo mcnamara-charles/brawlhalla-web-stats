@@ -93,7 +93,7 @@ main {
   font-family: 'Open Sans';
 }
 
-.ranks {
+.ranks, .player {
   padding-left: 20px;
   padding-right: 20px;
 }
@@ -259,6 +259,7 @@ tbody tr td {
   width: max-content;
   margin: 0 auto;
   margin-bottom: 25px;
+  display: block;
 }
 
 .leaderboard-table .expanded-content .player-details .name2 {
@@ -434,6 +435,16 @@ tr:hover .player-details__content-wrapper.bracket2v2 {
 .player-details__content-wrapper .name:hover {
   cursor: pointer;
   background-color: #0079a1 !important;
+}
+
+.player-details__content-wrapper .name2:hover {
+  cursor: pointer;
+  background-color: #0079a1 !important;
+}
+
+.player-details__content-wrapper .name2.secondary:hover {
+  cursor: pointer;
+  background-color: #8b0101 !important;
 }
 
 .see-more__wrapper {
