@@ -1,9 +1,9 @@
 import React from 'react';
-//import { HashLink } from 'react-router-hash-link';
-import { motion } from 'framer-motion';
-import { Route, Routes, Link} from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage.js';
 import RankingsPage from './components/RankingsPage.js';
+import PlayersPage from './components/PlayersPage.js';
+import ClansPage from './components/ClansPage.js';
 
 const AppWithRouterAccess = () => {
   return (
@@ -15,7 +15,8 @@ const AppWithRouterAccess = () => {
       <Routes>
         <Route path="/" exact element={<LandingPage />}/>
         <Route path="/rankings" element={<RankingsPage />}/>
-        {/*<Route path="/about" component={About} />*/}
+        <Route path="/players" element={<PlayersPage />}/>
+        <Route path="/clans" element={<ClansPage />}/>
       </Routes>
     </main>
   </>
