@@ -9,6 +9,15 @@ function useQuery() {
 function PlayersPage() {
     let query = useQuery();
     let playerID = query.get("id")
+
+    React.useEffect(() => {
+        async function fetchData() {
+
+        }
+           
+        fetchData()
+    },[])
+
     return (
         <>
             <div className='player'>
