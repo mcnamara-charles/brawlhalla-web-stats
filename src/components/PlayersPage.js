@@ -10,7 +10,6 @@ function useQuery() {
 function PlayersPage() {
 
     const [player, setPlayer] = React.useState("");
-    const [playerRanked, setPlayerRanked] = React.useState("");
 
 
     let query = useQuery();
@@ -32,9 +31,8 @@ function PlayersPage() {
 
             const fullData = _.merge(data, Rdata)
             
-            setPlayer(data)
-            setPlayerRanked(Rdata)
-            console.log(data)
+            setPlayer(fullData)
+            console.log(fullData)
         }
            
         fetchData()
