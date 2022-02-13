@@ -455,3 +455,66 @@ tr:hover .player-details__content-wrapper.bracket2v2 {
   max-width: 85%;
   margin-bottom: 50px;
 }
+
+.button.disabled {
+  cursor: not-allowed;
+  color: grey;
+}
+
+.button.disabled:hover {
+  cursor: not-allowed;
+  color: grey;
+  background-color:#2c2c2c82;
+  border-color: #2e2e2e
+}
+
+.display.small {
+  font-size: 35px;
+}
+
+.subhead.small {
+  font-size: 18px;
+  font-family: 'Open Sans';
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.data-mark {
+  font-size: 34px;
+  margin: 0;
+}
+
+.player-ranked_data-data__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.player-unranked_data.hidden, .player-ranked_data.hidden {
+  display: none;
+}
+
+.player-unranked_data > *:not(:last-child), .player-ranked_data > *:not(:last-child) {
+  margin-right: 35px;
+}
+
+.player-ranked_data-tier {
+  margin-right: 15px;
+}
+
+.player-chart__wrapper {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+.player_data__wrapper {
+  background-color: #222224;
+  padding: 25px;
+  border-radius: 15px;
+}
+
+.player-unranked_data, .player-ranked_data {
+  display: flex;
+}

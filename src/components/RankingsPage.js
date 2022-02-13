@@ -33,10 +33,12 @@ function RankingsPage () {
 
     async function appendPage(e) {
         e.preventDefault()
-        const newPage = (await fetch(`https://api.brawlhalla.com/rankings/${queryBracket}/${queryRegion}/${nextPage}?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-        const nnp = nextPage + 1;
-        setNextPage(nnp)
-        setLeaderboard(leaderboard.concat(newPage))
+        if(leaderboard.length < 200) {
+            const newPage = (await fetch(`https://api.brawlhalla.com/rankings/${queryBracket}/${queryRegion}/${nextPage}?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
+            const nnp = nextPage + 1;
+            setNextPage(nnp)
+            setLeaderboard(leaderboard.concat(newPage))
+        }
     }
 
     function getLegendName(n) {
@@ -296,6 +298,9 @@ function RankingsPage () {
                             )}    
                         </tbody>  
                     </table>
+                    <div className="see-more__wrapper">
+                        <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
+                    </div>
                 </div>
             )
         } else if (queryBracket.includes("1")) {
@@ -493,7 +498,7 @@ function RankingsPage () {
                             </tbody>  
                         </table>
                         <div className="see-more__wrapper">
-                            <button className='button style2' onClick={(e) => appendPage(e)}>See More</button>
+                            <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
                         </div>
                     </div>
                 );
@@ -698,7 +703,7 @@ function RankingsPage () {
                         </tbody>  
                     </table>
                     <div className="see-more__wrapper">
-                        
+                        <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
                     </div>
                 </div>
             );
