@@ -2,35 +2,50 @@ import React from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
 import { Link, useLocation } from "react-router-dom";
 
+// To get query parameters from URL bar
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
 
+// Page Functional Component
 function RankingsPage () {
 
+    // Makes useQuery callable
     let query = useQuery();
+    // Gets bracket parameter from queries; Either 1v1 or 2v2. Will return "1v1" if parameter does not exist in the URL
     let queryBracket = query.get("bracket")
     queryBracket = queryBracket ? queryBracket : "1v1"
+    // Gets region parameter from queries; 7 different options. Will return "all" if parameter does not exist in the URL
     let queryRegion = query.get("region")
     queryRegion = queryRegion ? queryRegion : "all"
 
+    /*
+    Getters and Setters for React UseState variables;
+    Stores pages to remind tree what the last page is that's being rendered;
+    Keeps time that data was generated to allow users to refresh. Should be time constricted to avoid overuse;
+    Keeps leaderboard and legends for generative content;
+    */
     const [nextPage, setNextPage] = React.useState(2)
     const [timeGenerated, setTimeGenerated] = React.useState("")
     const [leaderboard, setLeaderboard] = React.useState([])
     const [legends, setLegends] = React.useState([])
 
+    // Stores data in local storage
     function storeData(key, value) {
         window.localStorage.setItem(key, value)
     }
 
+    // Gets data with requested key from local storage
     function getStoredData(key) {
         return window.localStorage.getItem(key)
     }
 
+    // Converts wins and games into a winrate percentage
     function convertToWinrate(w, g) {
         return (w/g*100).toFixed(2)
     }
 
+    // Gets the next page of results for the leaderboard
     async function appendPage(e) {
         e.preventDefault()
         if(leaderboard.length < 200) {
@@ -41,6 +56,7 @@ function RankingsPage () {
         }
     }
 
+    // Converts a legend id into a legend name key
     function getLegendName(n) {
         const l = legends.find(legend => {
             return legend.legend_id === n
@@ -49,6 +65,7 @@ function RankingsPage () {
         return (l ? l.legend_name_key : "bodvar")
     }
 
+    // Converts a legend id into the legend's full name
     function getLegendActualName(n) {
         const l = legends.find(legend => {
             return legend.legend_id === n
@@ -57,11 +74,16 @@ function RankingsPage () {
         return (l ? l.bio_name : "Bödvar")
     }
 
+    // Converts a tier to a tier_key for use with images
     function getTierKey(t) {
         return t.toLowerCase().replace(" ", "-")
     }
 
 
+    /*
+    UseEffect to grab data on page initial load but not to make an attempt again until the page is fully refreshed.
+    Once fired it checks stored data and if recent enoough, makes use of that. If not, or if that data doesn't exist, uses a fetch request to get and store.
+    */
     React.useEffect(() => {
         async function fetchData() {
             // Tries to Get Stored Leaderboard
