@@ -424,6 +424,7 @@ tr:hover .player-details__content-wrapper.bracket2v2 {
 .view-button-groups {
   display: flex;
   flex-flow: row;
+  max-width: 85%;
 }
 
 .view-button-groups .button-group__wrapper:not(:last-child) {

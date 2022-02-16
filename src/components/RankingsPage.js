@@ -47,12 +47,11 @@ function RankingsPage () {
 
     // Gets the next page of results for the leaderboard
     async function appendPage(e) {
+        const allData = JSON.parse(getStoredData("brawlhalla-site-data"))
+
         e.preventDefault()
-        if(leaderboard.length < 200) {
-            const newPage = (await fetch(`https://api.brawlhalla.com/rankings/${queryBracket}/${queryRegion}/${nextPage}?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-            const nnp = nextPage + 1;
-            setNextPage(nnp)
-            setLeaderboard(leaderboard.concat(newPage))
+        if(leaderboard.length < 99) {
+            setLeaderboard(leaderboard.concat(allData.data.data[queryRegion][queryBracket].page2))
         }
     }
 
@@ -90,6 +89,7 @@ function RankingsPage () {
             // Tries to Get Stored Leaderboard
             setLeaderboard(allData.data.data[queryRegion][queryBracket].page1)
             setLegends(allData.data.data.legends)
+            setTimeGenerated(String(new Date(allData.time).toLocaleString()))
         }
 
         setData()
@@ -273,7 +273,7 @@ function RankingsPage () {
                         </tbody>  
                     </table>
                     <div className="see-more__wrapper">
-                        <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
+                        <button className={leaderboard.length < 99 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
                     </div>
                 </div>
             )
@@ -326,6 +326,9 @@ function RankingsPage () {
                                         <button className={queryRegion.includes("us-w") ? "button style-a active" : "button style-a"}>US-W</button>
                                     </Link>
                                 </div>
+                            </div>
+                            <div className='date-marker'>
+                                <span>Time Generated: {timeGenerated}</span>    
                             </div>
                         </div>
                         <table className="leaderboard-table">
@@ -472,7 +475,7 @@ function RankingsPage () {
                             </tbody>  
                         </table>
                         <div className="see-more__wrapper">
-                            <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
+                            <button className={leaderboard.length < 99 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
                         </div>
                     </div>
                 );
@@ -677,7 +680,7 @@ function RankingsPage () {
                         </tbody>  
                     </table>
                     <div className="see-more__wrapper">
-                        <button className={leaderboard.length < 199 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
+                        <button className={leaderboard.length < 99 ? 'button style2' : 'button style2 disabled'} onClick={(e) => appendPage(e)}>See More</button>
                     </div>
                 </div>
             );

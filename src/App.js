@@ -10,10 +10,6 @@ import ProjectsAPI from './components/ProjectsAPI.js';
 Amplify.configure(awsExports);
 const projectsAPI = new ProjectsAPI();
 
-
-
-
-
 function App() {
 
   const [data, setData] = React.useState({})
@@ -26,7 +22,7 @@ function App() {
       if(d) {
         const timePassed = ((new Date().getTime() - d.time)/1000/60)
         console.log("Minutes Passed = " + timePassed)
-        if(((new Date().getTime() - new Date(d.time).getTime())/1000/60) > 10000) {
+        if(((new Date().getTime() - new Date(d.time).getTime())/1000/60) > 15) {
           let bdata = await projectsAPI.GetBrawlhallaData();
           console.log(typeof(bdata.time));
           window.localStorage.setItem("brawlhalla-site-data", JSON.stringify({
@@ -34,8 +30,6 @@ function App() {
               "data": JSON.parse(bdata.data)
             })
           )
-        } else {
-
         }
       } else {
         let bdata = await projectsAPI.GetBrawlhallaData();
