@@ -1,0 +1,13 @@
+{
+    "regions": [
+        "aus",
+        "brz",
+        "eu",
+        "jpn",
+        "sea",
+        "us-e",
+        "us-w"
+    ],
+    "brackets": ["1v1", "2v2"],
+    "API_KEY": "9WFVHV2XL7KRRNCIMULK"
+}

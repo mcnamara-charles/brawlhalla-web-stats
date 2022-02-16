@@ -1,0 +1,14 @@
+{
+    "storagebrawlhalladataName": {
+        "Fn::GetAtt": [
+            "storagebrawlhalladata",
+            "Outputs.Name"
+        ]
+    },
+    "storagebrawlhalladataArn": {
+        "Fn::GetAtt": [
+            "storagebrawlhalladata",
+            "Outputs.Arn"
+        ]
+    }
+}

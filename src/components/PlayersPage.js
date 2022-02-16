@@ -17,6 +17,11 @@ function PlayersPage() {
         return (w/g*100).toFixed(2)
     }
 
+    function getPlayerLevelFill(lv, xpp) {
+        if(lv===100) return "100%"
+        else return String(xpp*100)
+    }
+
     const [player, setPlayer] = React.useState("");
     const [personalRanked, setPersonalRanked] = React.useState(true);
     const [legendsRanked, setLegendsRanked] = React.useState(true);
@@ -53,6 +58,13 @@ function PlayersPage() {
                 <div className='player'>
                     <h1 className="display">Player: <span className="gl-span">{player.name}</span></h1>
                     <h2 className="display small">Personal Data</h2>
+                    <div className="player-level__wrapper">
+                        <div className="player-level__outer">
+                            <div className="player-level__inner" style={{width: getPlayerLevelFill(player.level, player.xp_percentage)}}>
+                                <h2 className="level-indicator">{`Level ${player.level}`}</h2>
+                            </div>    
+                        </div> 
+                    </div>
                     <div className='player_data__wrapper'>
                         <div className={personalRanked ? "player-ranked_data" : "player-ranked_data hidden"}>
                             <div className="player-ranked_data-tier__wrapper">

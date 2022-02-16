@@ -85,62 +85,14 @@ function RankingsPage () {
     Once fired it checks stored data and if recent enoough, makes use of that. If not, or if that data doesn't exist, uses a fetch request to get and store.
     */
     React.useEffect(() => {
-        async function fetchData() {
+        async function setData() {
+            const allData = JSON.parse(getStoredData("brawlhalla-site-data"))
             // Tries to Get Stored Leaderboard
-            var leaderboardData = getStoredData("leaderboard")
-            var legendData = getStoredData("legends")
-
-            if(leaderboardData && queryRegion === "all") {
-                if(((new Date().getTime() - new Date(JSON.parse(leaderboardData).time).getTime())/1000/60) < 30) {
-                    const parsedLeaderboardData = JSON.parse(leaderboardData)
-                    const requestedBracket = queryBracket ? queryBracket : "1v1"
-                    setLeaderboard(parsedLeaderboardData.data[requestedBracket])
-                    setTimeGenerated(parsedLeaderboardData.time)
-                } else {
-                    const leaderboardData1v1 = (await fetch(`https://api.brawlhalla.com/rankings/1v1/all/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                    const leaderboardData2v2 = (await fetch(`https://api.brawlhalla.com/rankings/2v2/all/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                    const toStore = {
-                        "time": new Date().toLocaleString(),
-                        "data": {
-                            "1v1": leaderboardData1v1,
-                            "2v2": leaderboardData2v2 
-                        }
-                    }
-                    const requestedBracket = queryBracket ? queryBracket : "1v1"
-                    storeData("leaderboard", JSON.stringify(toStore))
-                    setLeaderboard(toStore.data[requestedBracket])
-                    setTimeGenerated(toStore.time)
-                }
-            } else if(queryRegion !== "all") {
-                const qData = (await fetch(`https://api.brawlhalla.com/rankings/${queryBracket ? queryBracket : "1v1"}/${queryRegion}}/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                setLeaderboard(qData)
-                setTimeGenerated(new Date().toLocaleString())
-            } else {
-                const leaderboardData1v1 = (await fetch(`https://api.brawlhalla.com/rankings/1v1/all/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                const leaderboardData2v2 = (await fetch(`https://api.brawlhalla.com/rankings/2v2/all/1?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                const toStore = {
-                    "time": new Date().toLocaleString(),
-                    "data": {
-                        "1v1": leaderboardData1v1,
-                        "2v2": leaderboardData2v2 
-                    }
-                }
-                const requestedBracket = queryBracket ? queryBracket : "1v1"
-                storeData("leaderboard", JSON.stringify(toStore))
-                setLeaderboard(toStore.data[requestedBracket])
-                setTimeGenerated(toStore.time)
-            }
-
-            if(legendData) {
-                setLegends(JSON.parse(legendData))
-            } else {
-                const newLegendData = (await fetch(`https://api.brawlhalla.com/legend/all?api_key=9WFVHV2XL7KRRNCIMULK`).then((response) => response.json()))
-                storeData("legends", JSON.stringify(newLegendData))
-                setLegends(newLegendData)
-            }
+            setLeaderboard(allData.data.data[queryRegion][queryBracket].page1)
+            setLegends(allData.data.data.legends)
         }
 
-        fetchData()
+        setData()
     },[queryRegion, queryBracket])
 
     try {

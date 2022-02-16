@@ -1,0 +1,10 @@
+{
+  "resourceName": "brawlhalladata",
+  "tableName": "brawlhalladatatable",
+  "partitionKey": {
+    "fieldName": "time",
+    "fieldType": "number"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

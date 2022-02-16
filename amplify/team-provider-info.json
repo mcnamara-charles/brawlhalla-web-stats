@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-brawlhallastatsapp-dev-173020-authRole",
+      "UnauthRoleArn": "arn:aws:iam::444803315307:role/amplify-brawlhallastatsapp-dev-173020-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::444803315307:role/amplify-brawlhallastatsapp-dev-173020-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-brawlhallastatsapp-dev-173020-deployment",
+      "UnauthRoleName": "amplify-brawlhallastatsapp-dev-173020-unauthRole",
+      "StackName": "amplify-brawlhallastatsapp-dev-173020",
+      "StackId": "arn:aws:cloudformation:us-east-2:444803315307:stack/amplify-brawlhallastatsapp-dev-173020/dd303320-8eae-11ec-849b-02fdecaba0d4",
+      "AmplifyAppId": "dolmzpqiva7uw"
+    },
+    "categories": {
+      "function": {
+        "getTableData": {
+          "deploymentBucketName": "amplify-brawlhallastatsapp-dev-173020-deployment",
+          "s3Key": "amplify-builds/getTableData-49373258746e6f396150-build.zip"
+        }
+      }
+    }
+  }
+}
