@@ -539,3 +539,10 @@ tr:hover .player-details__content-wrapper.bracket2v2 {
   margin: 0;
   font-size: 18px;
 }
+
+.date-marker {
+  margin-left: auto;
+  margin-right: 15px;
+  align-self: end;
+  margin-bottom: 18px;
+}

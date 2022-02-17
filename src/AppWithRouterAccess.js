@@ -9,7 +9,21 @@ const AppWithRouterAccess = () => {
   return (
   <>
     <div className='sidebar'>
-      
+      <div className='sidebar-header'>
+        Leaderboard 1v1
+      </div>
+      <div className='sidebar-header'>
+        Leaderboard 2v2
+      </div>
+      <div className='sidebar-option'>
+        Players
+      </div>
+      <div className='sidebar-option'>
+        Clans
+      </div>
+      <div className='sidebar-option'>
+        Legends
+      </div>
     </div>
     <main>
       <Routes>
