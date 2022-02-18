@@ -28,7 +28,6 @@ function RankingsPage () {
     */
     const [timeGenerated, setTimeGenerated] = React.useState("")
     const [leaderboard, setLeaderboard] = React.useState([])
-    const [leaderboardRender, setLeaderboardRender] = React.useState(<Leaderboard1s leaderboard={""} legends={""} />)
     const [legends, setLegends] = React.useState([])
 
     // Gets data with requested key from local storage

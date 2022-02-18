@@ -81,11 +81,11 @@ const Leaderboard1s = ({ leaderboard, legends }) => {
                                                         { title: 'Losses', value: (player.best_legend_games - player.best_legend_wins), color: '#600101' },
                                                     ]}
                                                     style={{height:"150px"}}
-                                                    lineWidth={16}
+                                                    lineWidth={20}
                                                     paddingAngle={18}
                                                     rounded
                                                     label={({ dataEntry }) => dataEntry.value}
-                                                    labelStyle={() => ({
+                                                    labelStyle={(index) => ({
                                                         fill: '#ffffff',
                                                         fontSize: '10px',
                                                         fontFamily: 'sans-serif',
@@ -126,7 +126,7 @@ const Leaderboard1s = ({ leaderboard, legends }) => {
                                         paddingAngle={18}
                                         rounded
                                         label={({ dataEntry }) => dataEntry.value}
-                                        labelStyle={() => ({
+                                        labelStyle={(index) => ({
                                             fill: '#ffffff',
                                             fontSize: '10px',
                                             fontFamily: 'sans-serif',
